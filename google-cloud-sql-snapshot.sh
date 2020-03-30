@@ -10,6 +10,8 @@ DATABASE="DATABASE_NAME"
 SQL_INSTANCE="SQL_INSTANCE"
 
 # Author: Patrick Morin, Esokia
+# authentification with service account
+gcloud auth activate-service-account --key-file=/path/to/serviceaccount.json
 # export database from instance and create a snapshot
 gcloud sql export sql "${SQL_INSTANCE}" gs://"${BUCKET_NAME}"/sqldumpfile-"$(date '+%Y-%m-%d-%s')".sql.gz --database "${DATABASE}"
 #
